@@ -1,7 +1,4 @@
-local second = 1000
-local minute = 60 * second
-
-EarlyRespawnTimer          = 8 * minute -- Temps avant respawn (En étant Coma)
+Config = {}
 
 Config = {
 
