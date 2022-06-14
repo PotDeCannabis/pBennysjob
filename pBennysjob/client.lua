@@ -572,7 +572,7 @@ function MenuBennys()
                                     ESX.ShowNotification("~g~Vous avez bien envoyer la facture")
                                 end
                             else
-                                ESX.ShowNotification("~r~Aucune personne à proximitée")
+                                ESX.ShowNotification("~r~Aucune personne à proximité.")
                             end
                         end
                     });
