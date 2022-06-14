@@ -126,22 +126,24 @@ end
 Citizen.CreateThread(function()
     while true do
         local wait = 750
-        if ESX.PlayerData.job ~= nil and ESX.PlayerData.job.grade_name == 'boss' then
-            for k in pairs(Config.Position.Boss) do
-                local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
-                local pos = Config.Position.Boss
-                local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, pos[k].x, pos[k].y, pos[k].z)
+        if ESX.PlayerData.job and ESX.PlayerData.job.name == 'concess' then
+            if ESX.PlayerData.job ~= nil and ESX.PlayerData.job.grade_name == 'boss' then
+                for k in pairs(Config.Position.Boss) do
+                    local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
+                    local pos = Config.Position.Boss
+                    local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, pos[k].x, pos[k].y, pos[k].z)
 
-                if dist <= 5.0 then
-                    wait = 0
-                    DrawMarker(6, pos[k].x, pos[k].y, pos[k].z-0.99, nil, nil, nil, -90, nil, nil, 1.0, 1.0, 1.0, 230, 230, 0 , 120)
-                end
+                    if dist <= 5.0 then
+                        wait = 0
+                        DrawMarker(6, pos[k].x, pos[k].y, pos[k].z-0.99, nil, nil, nil, -90, nil, nil, 1.0, 1.0, 1.0, 230, 230, 0 , 120)
+                    end
 
-                if dist <= 2.0 then
-                    wait = 0
-                    Visual.Subtitle("Appuyez sur ~y~[E] ~s~pour pour accèder au ~y~actions patron ~s~!", 1)
-                    if IsControlJustPressed(1,51) then
-                        MenuBoss()
+                    if dist <= 2.0 then
+                        wait = 0
+                        Visual.Subtitle("Appuyez sur ~y~[E] ~s~pour pour accèder au ~y~actions patron ~s~!", 1)
+                        if IsControlJustPressed(1,51) then
+                            MenuBoss()
+                        end
                     end
                 end
             end
