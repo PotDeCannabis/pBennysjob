@@ -16,17 +16,11 @@ Citizen.CreateThread(function()
 	end
 
 	PlayerData = ESX.GetPlayerData()
-	ESX.TriggerServerCallback('esx_lscustom:getVehiclesPrices', function(vehicles)
-		Vehicles = vehicles
-	end)
 end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
 	PlayerData = xPlayer
-	ESX.TriggerServerCallback('esx_lscustom:getVehiclesPrices', function(vehicles)
-		Vehicles = vehicles
-	end)
 end)
 
 RegisterNetEvent('esx:setJob')
