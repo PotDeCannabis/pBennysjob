@@ -126,7 +126,7 @@ end
 Citizen.CreateThread(function()
     while true do
         local wait = 750
-        if ESX.PlayerData.job and ESX.PlayerData.job.name == 'concess' then
+        if ESX.PlayerData.job and ESX.PlayerData.job.name == 'bennys' then
             if ESX.PlayerData.job ~= nil and ESX.PlayerData.job.grade_name == 'boss' then
                 for k in pairs(Config.Position.Boss) do
                     local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
