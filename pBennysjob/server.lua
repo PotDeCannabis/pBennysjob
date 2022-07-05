@@ -47,7 +47,7 @@ end)
 
 ESX.RegisterServerCallback('pBennysjob:getStockItems', function(source, cb)
 	local all_items = {}
-	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_ems', function(inventory)
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_bennys', function(inventory)
 		for k,v in pairs(inventory.items) do
 			if v.count > 0 then
 				table.insert(all_items, {label = v.label,item = v.name, nb = v.count})
@@ -62,7 +62,7 @@ AddEventHandler('pBennysjob:putStockItems', function(itemName, count)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local item_in_inventory = xPlayer.getInventoryItem(itemName).count
 
-	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_ems', function(inventory)
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_bennys', function(inventory)
 		if item_in_inventory >= count and count > 0 then
 			xPlayer.removeInventoryItem(itemName, count)
 			inventory.addItem(itemName, count)
@@ -77,7 +77,7 @@ RegisterServerEvent('pBennysjob:takeStockItems')
 AddEventHandler('pBennysjob:takeStockItems', function(itemName, count)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_ems', function(inventory)
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_bennys', function(inventory)
 			xPlayer.addInventoryItem(itemName, count)
 			inventory.removeItem(itemName, count)
 			TriggerClientEvent('esx:showNotification', xPlayer.source, "Vous avez retirer ~y~"..itemName.."~s~ au nombre de ~y~"..count.."~s~.")
